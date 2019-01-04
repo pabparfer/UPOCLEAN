@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_upoclean_lineas_form">
+			<field name="name">view_upoclean_lineas_form</field>
+			<field name="model">lineas</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_lineas">
+
+					<field name="id_lineas" colspan="4" />
+					<field name="lugar" colspan="4" />
+					<field name="metros" colspan="4" />
+					<field name="f_comienzo" colspan="4" />
+					<field name="f_fin" colspan="4" />
+					<!--<field name="tick_trabajo_id" mode="tree" nolabel="1"/> -->
+					<field name="pedido_id" mode="tree" />
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_upoclean_lineas_tree_view">
+			<field name="name">view_upoclean_lineas_tree</field>
+			<field name="model">lineas</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_lineas">
+					<field name="id_lineas" />
+					<field name="lugar" />
+					<field name="metros" />
+					<field name="f_comienzo" />
+					<field name="f_fin" />
+					<!--<field name="tick_trabajo_id" /> -->
+					<field name="pedido_id" mode="tree" nolabel="1" />
+				</tree>
+			</field>
+		</record>
+				
+		<record id="act_lineas" model="ir.actions.act_window">
+			<field name="name">Linea De Pedido</field>
+			<field name="res_model">lineas</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="upoclean" name="Upoclean" action="act_lineas" />
+		<menuitem name="Linea de Pedidos" id="lineas_submenu" parent="upoclean"
+			sequence="120" />
+		<menuitem name="Ver Linea de Pedidos" id="ver_lineas_submenu"
+			parent="lineas_submenu" sequence="130" action="act_lineas" />
+	</data>
+</openerp>
+
+

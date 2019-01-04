@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data noupdate="1">
+		<record id="us1" model="usuario">
+			<field name="name">Miguel</field>
+			<field name="dni" >123</field>
+			<field name="fecha_Nacimiento" >02/01/2019</field>
+		</record>
+		<record id="us2" model="usuario">
+			<field name="name">Pablo</field>
+			<field name="dni" >124</field>
+			<field name="fecha_Nacimiento" >02/01/2019</field>
+		</record>
+		<record id="us3" model="usuario">
+			<field name="name">Jesus</field>
+			<field name="dni" >125</field>
+			<field name="fecha_Nacimiento" >02/01/2019</field>
+		</record>
+		<record id="sus1" model="suscripcion">
+			<field name="name" >1</field>
+			<field name="start" >02/01/2019</field>
+			<field name='cuenta' >000000000</field>
+			<field name='tipo_suscripcion' >mensual</field>
+		</record>
+		
+		<record id="sus2" model="suscripcion">
+			<field name="name" >2</field>
+			<field name="start" >02/01/2019</field>
+			<field name='cuenta' >000000000</field>
+			<field name='tipo_suscripcion' >mensual</field>
+		</record>
+		
+		<record id="sus3" model="suscripcion">
+			<field name="name" >3</field>
+			<field name="start" >02/01/2019</field>
+			<field name='cuenta' >000000000</field>
+			<field name='tipo_suscripcion' >anual</field>
+		</record>
+		<record id="empresa" model="empresa">
+			<field name="name" >1</field>
+			<field name="CIF" >87654312</field>
+			<field name="cpostal" >41980</field>
+			<field name="location" >Sevilla</field>
+		</record>
+		<record id="tr1" model="trabajador">
+			<field name="name">perez</field>
+			<field name="DNI" >444</field>
+			<field name="sueldo" >1000</field>
+		</record>
+		<record id="tr2" model="trabajador">
+			<field name="name">nunyez</field>
+			<field name="DNI" >445</field>
+			<field name="sueldo" >1000</field>
+		</record>
+		<record id="tr3" model="trabajador">
+			<field name="name">santos</field>
+			<field name="DNI" >446</field>
+			<field name="sueldo" >1000</field>
+		</record><!--
+		<record id="j1" model="jefe">
+			<field name="plus" >200</field>
+		</record> 
+		-->
+		<record id="tick1" model="ticks">
+			<field name="id_ticks">1</field>
+			<field name="f_comienzo" >02/01/2019 21:04:53</field>
+			<field name="f_fin">03/01/2019 21:04:53</field>
+		</record>
+		
+		
+		<record id="tick2" model="ticks">
+			<field name="id_ticks">2</field>
+			<field name="f_comienzo" >02/01/2019 21:04:53</field>
+			<field name="f_fin">03/01/2019 21:04:53</field>
+		</record>
+		
+		<record id="tick3" model="ticks">
+			<field name="id_ticks">3</field>
+			<field name="f_comienzo" >02/01/2019 21:04:53</field>
+			<field name="f_fin">03/01/2019 21:04:53</field>
+		</record>
+		
+		<record id="tick4" model="ticks">
+			<field name="id_ticks">4</field>
+			<field name="f_comienzo" >02/01/2019 21:04:53</field>
+			<field name="f_fin">03/01/2019 21:04:53</field>
+		</record>
+		
+		<record id="tick5" model="ticks">
+			<field name="id_ticks">5</field>
+			<field name="f_comienzo" >02/01/2019 21:04:53</field>
+			<field name="f_fin">03/01/2019 21:04:53</field>
+		</record>
+		
+		<record id="tick6" model="ticks">
+			<field name="id_ticks">6</field>
+			<field name="f_comienzo" >02/01/2019 21:04:53</field>
+			<field name="f_fin">03/01/2019 21:04:53</field>
+		</record>
+		
+		
+		<record id="m1" model="material_limpieza">
+			<field name="id_material" >1</field>
+			<field name="elementos" >fregona,limpia cristales,agua</field>
+		</record>
+		
+		<record id="m2" model="material_limpieza">
+			<field name="id_material" >2</field>
+			<field name="elementos" >limpia cristales,agua</field>
+		</record>
+		
+		<record id="m3" model="material_limpieza">
+			<field name="id_material" >3</field>
+			<field name="elementos" >fregona,agua</field>
+		</record>
+		
+		<record id="l1" model="lineas">
+			<field name="id_lineas" >1</field>
+			<field name="lugar" >Upo</field>
+			<field name="metros" >100</field>
+			<field name="f_comienzo" >15/11/2018</field>
+			<field name="f_fin" >20/11/2018</field>
+		</record>
+		
+		<record id="l2" model="lineas">
+			<field name="id_lineas" >2</field>
+			<field name="lugar" >Upo</field>
+			<field name="metros" >150</field>
+			<field name="f_comienzo" >15/11/2018</field>
+			<field name="f_fin" >20/11/2018</field>
+		</record>
+			
+		<record id="l3" model="lineas">
+			<field name="id_lineas" >3</field>
+			<field name="lugar" >Upo</field>
+			<field name="metros" >200</field>
+			<field name="f_comienzo" >15/11/2018</field>
+			<field name="f_fin" >20/11/2018</field>
+		</record>
+		
+		<record id="p1" model="pedido">
+			<field name="id_pedido" >10</field>
+			<field name="fechaHora" >04/01/2019 21:13:44</field>
+			<field name="cajero" >perez</field>
+		</record>
+		
+		<record id="p2" model="pedido">
+			<field name="id_pedido" >11</field>
+			<field name="fechaHora" >04/01/2019 21:13:44</field>
+			<field name="cajero" >perez</field>
+		</record>
+		
+		<record id="j1" model="jefe">
+			<field name="name" >Jesus</field>
+			<field name="seccion" >Tienda</field>
+		</record>
+		
+		<record id="j2" model="jefe">
+			<field name="name" >Pablo</field>
+			<field name="seccion" >Empleados calle</field>
+		</record>
+	</data>
+</openerp>

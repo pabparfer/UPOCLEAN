@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="view_upoclean_empresa_form">
+			<field name="name">view_upoclean_empresa_form</field>
+			<field name="model">empresa</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Empresas">
+					<field name="name" colspan="4" />
+					<field name="CIF" colspan="4" />
+					<field name="cpostal"  />
+					<field name="location" colspan="4" />
+					<field name="trabajadores_ids" colspan="4" mode="tree"
+						nolabel="1">
+						<tree>
+							<field name="name" />
+							<field name="DNI" />
+						</tree>
+					</field>
+					<field name="suscripciones_ids" colspan="4" mode="tree"
+						nolabel="1">
+						<tree>
+							<field name="name" />
+							<field name="start" />
+							<field name="tipo_suscripcion" />
+						</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_upoclean_tree_view">
+			<field name="name">view_upoclean_empresa_tree</field>
+			<field name="model">empresa</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="CIF" />
+					<field name="cpostal" />
+					<field name="location" />
+					<field name="trabajadores_ids" />
+					<field name="suscripciones_ids" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_upoclean_empresa_search">
+			<field name="name">view_upoclean_empresa_search</field>
+			<field name="model">empresa</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Empresas">
+					<field name="name" />
+					<field name="CIF" />
+					<field name="cpostal" />
+					<field name="location" />
+					<group expand="0" string="Agrupar por...">
+						<filter name="group_by_location" string="Localizacion"
+							context="{'group_by':'location'}" />
+					</group>
+
+				</search>
+			</field>
+		</record>
+
+		<record id="act_empresa" model="ir.actions.act_window">
+			<field name="name">Empresas</field>
+			<field name="res_model">empresa</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+			<field name="search_view_id" ref="view_upoclean_empresa_search" />
+		</record>
+		<menuitem id="upoclean" name="Upoclean" action="act_empresa" />
+		<menuitem name="Empresas" id="empresas_submenu" parent="upoclean"
+			sequence="120" />
+		<menuitem name="Ver empresas" id="ver_empresas_submenu"
+			parent="empresas_submenu" sequence="130" action="act_empresa" />
+	</data>
+</openerp>

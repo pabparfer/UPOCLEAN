@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+		<record model="ir.ui.view" id="view_upoclean_empresa_form">
+			<field name="name">view_upoclean_tick_trabajo_form</field>
+			<field name="model">ticks</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_tick_trabajo">
+					<field name="id_ticks" colspan="4"/>
+					<field name="f_comienzo" colspan="4" />
+					<field name="f_fin" colspan="4" />
+					<field name="trabajador_id"  mode="tree" colspan="2"/>
+					<newline/>
+					<!--  <field name="linea_pedido_id"  mode="tree" colspan="2"/>-->
+					
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_upoclean_tree_view">
+			<field name="name">view_upoclean_tick_trabajo_tree</field>
+			<field name="model">ticks</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_tick_trabajo">
+					<field name="id_ticks" />
+					<field name="f_comienzo" />
+					<field name="f_fin" />
+					<field name="trabajador_id" />
+					<!--  <field name="linea_pedido_id" />-->
+				</tree>
+			</field>
+		</record>
+		 
+
+		<record id="act_tick_trabajo" model="ir.actions.act_window">
+			<field name="name">ticks</field>
+			<field name="res_model">ticks</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="upoclean" name="Upoclean" action="act_tick_trabajo" />
+		<menuitem name="Tick Trabajo" id="tick_trabajo_submenu" parent="upoclean"
+		sequence="120" />
+		<menuitem name="Ver Ticks Trabajos" id="ver_tick_trabajo_submenu" parent="tick_trabajo_submenu"
+			sequence="130" action="act_tick_trabajo" />
+	</data>
+</openerp>
+
+

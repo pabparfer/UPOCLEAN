@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_upoclean_jefe_form">
+			<field name="name">view_upoclean_jefe_form</field>
+			<field name="model">jefe</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_jefe">
+					<field name="name" colspan="4"/>
+					<field name="seccion" colspan="4"/>
+					<field name="trabajador_ids" colspan="4"/>
+					<newline></newline>
+					<separator></separator>
+					<button name="eliminarTrabajadores" string="Eliminar trabajadores"
+						type="object"></button>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_upoclean_jefe_tree_view">
+			<field name="name">view_upoclean_jefe_tree</field>
+			<field name="model">jefe</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="seccion" />
+					<field name="trabajador_ids" />
+				</tree>
+			</field>
+		</record>
+		
+		<record id="act_jefe" model="ir.actions.act_window">
+			<field name="name">Jefe</field>
+			<field name="res_model">jefe</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="upoclean" name="Upoclean" action="act_jefe" />
+		<menuitem name="Jefe" id="jefe_submenu" parent="upoclean"
+		sequence="120" />
+		<menuitem name="Ver jefe" id="ver_jefe_submenu" parent="jefe_submenu"
+			sequence="130" action="act_jefe" />
+	</data>
+</openerp>

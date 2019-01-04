@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+		<record model="ir.ui.view" id="view_upoclean_material_form">
+			<field name="name">view_upoclean_material_form</field>
+			<field name="model">material_limpieza</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_lineas">
+				<field name="id_material" colspan="1" />
+				<field name="elementos" colspan="2"/>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_upoclean_material_tree_view">
+			<field name="name">view_upoclean_material_tree</field>
+			<field name="model">material_limpieza</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_lineas">
+				<field name="id_material"  />
+				<field name="elementos" />
+				</tree>
+			</field>
+		</record>
+		
+		<record id="act_material" model="ir.actions.act_window">
+			<field name="name">Material de Limpieza</field>
+			<field name="res_model">material_limpieza</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+		</record>
+		<menuitem id="upoclean" name="Upoclean" action="act_material" />
+		<menuitem name="Material de Limpieza" id="material_submenu" parent="upoclean"
+		sequence="120" />
+		<menuitem name="Ver Material de Limpieza" id="ver_material_submenu" parent="material_submenu"
+			sequence="130" action="act_material" />
+	</data>
+</openerp>
+
+

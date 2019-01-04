@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="view_upoclean_pedido_form">
+			<field name="name">view_upoclean_pedido_form</field>
+			<field name="model">pedido</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_pedido">
+					<field name="id_pedido" colspan="4" />
+					<field name="fechaHora" colspan="4" />
+					<field name="cajero" colspan="4" />
+					<field name="empresa_id" colspan="4" />
+					<field name="suscripcion_id" colspan="4" />
+					<field name="lineaPedido_id" colspan="4" />
+			        <newline/>
+			        <group colspan="4">
+				     	<field name="state" statusbar_visible="start,listo,finalizado" widget="statusbar" nolabel="1"/>
+				     	<button name="start" string="Admitir" states="start" colspan="1" icon="gtk-ok"/>
+				        <button name="finalizar" string="Finalizar" states="listo" colspan="1" icon="gtk-apply"/>
+			        </group>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_upoclean_pedido_tree_view">
+			<field name="name">view_upoclean_pedido_tree</field>
+			<field name="model">pedido</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_lineas">
+					<field name="id_pedido" />
+					<field name="fechaHora" />
+					<field name="cajero" />
+					<field name="empresa_id" />
+					<field name="suscripcion_id" />
+					<field name="lineaPedido_id"  />
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="view_manage_gantt">
+			<field name="name">view_upoclean_pedido_gantt</field>
+			<field name="model">pedido</field>
+			<field name="type">gantt</field>
+			<field name="arch" type="xml">
+				<gantt color="id_pedido" string="Pedidos"
+					date_start="fechaHora" date_stop="fechaHora" mode="week" >
+					<field name="id_pedido" />
+				</gantt>
+			</field>
+		</record>
+		
+		<record id="act_pedido" model="ir.actions.act_window">
+			<field name="name">Pedido</field>
+			<field name="res_model">pedido</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree,gantt</field>
+		</record>
+		<menuitem id="upoclean" name="Upoclean" action="act_pedido" />
+		<menuitem name="Pedidos" id="pedido_submenu" parent="upoclean"
+			sequence="120" />
+		<menuitem name="Ver Pedidos" id="ver_pedido_submenu" parent="pedido_submenu"
+			sequence="130" action="act_pedido" />
+	</data>
+</openerp>
+
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_manage_usuario_form">
+			<field name="name">vista_Form</field>
+			<field name="model">usuario</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Classes">
+					<field name="name" colspan="4"/>
+					<field name="dni" colspan="4"/>
+					<field name="fecha_Nacimiento" colspan="4" />
+					<field name="suscripcion_id" colspan='4' nolabel="1"/>
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_manage_usuario_tree">
+			<field name="name">vista_Tree</field>
+			<field name="model">usuario</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Usuarios_tree">
+					<field name="name" />
+					<field name="dni" />
+					<field name="fecha_Nacimiento" />
+					
+					<field name="suscripcion_id" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_upoclean_usuario_search">
+			<field name="name">view_upoclean_usuario_search</field>
+			<field name="model">usuario</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Usuarios">
+					<field name="name" />
+					<field name="dni" />
+					<group expand="0" string="Agrupar por...">
+						<filter name="group_by_name" string="nombre"
+							context="{'group_by':'name'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="act_usuario" model="ir.actions.act_window">
+			<field name="name">"Usuario"</field>
+			<field name='res_model'>usuario</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree</field>
+			<field name="search_view_id" ref="view_upoclean_usuario_search"/>
+		</record>
+		<menuitem id="upoclean" name="Upoclean" action="act_usuario" />
+		<menuitem name="Usuarios" id="usuarios_submenu" parent="upoclean"
+			sequence="120" />
+		<menuitem name="Ver usuarios" id="ver_usuarios_submenu"
+			parent="usuarios_submenu" sequence="130" action="act_usuario" />
+	</data>
+</openerp>

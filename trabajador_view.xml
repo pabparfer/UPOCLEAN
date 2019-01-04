@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_upoclean_trabajador_form">
+			<field name="name">view_upoclean_trabajador_form</field>
+			<field name="model">trabajador</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="form_trabajador">
+					<field name="name" colspan="4" />
+					<field name="DNI" colspan="4" />
+					<field name="nticks" />
+					<field name="sueldo" />
+					<field name="empresa_id" colspan="4" />
+					<field name="tick_trabajo_id" />
+					<field name="jefe_ids" />
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_upoclean_tree_trabajador_view">
+			<field name="name">view_upoclean_trabajador_tree</field>
+			<field name="model">trabajador</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="tree_string">
+					<field name="name" />
+					<field name="DNI" />
+					<field name="nticks" />
+					<field name="sueldo" />
+					<field name="empresa_id" />
+					<field name="tick_trabajo_id" />
+					<field name="jefe_ids" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_trabajador_graph">
+			<field name="name">view_trabajador_graph</field>
+			<field name="model">trabajador</field>
+			<field name="type">graph</field>
+			<field name="arch" type="xml">
+				<graph string="Sueldos de trabajadores" type="line">
+					<field name="name"   group="True "/>
+					<field name="sueldo"  />				
+				</graph>
+			</field>
+		</record>
+		<record id="act_trabajador" model="ir.actions.act_window">
+			<field name="name">Trabajador</field>
+			<field name="res_model">trabajador</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree,graph</field>
+		</record>
+		<menuitem id="upoclean" name="Upoclean" action="act_trabajador" />
+		<menuitem name="Trabajadores" id="trabajadores_submenu"
+			parent="upoclean" sequence="120" />
+		<menuitem name="Ver trabajadores" id="ver_trabajadores_submenu"
+			parent="trabajadores_submenu" sequence="130" action="act_trabajador" />
+	</data>
+</openerp>
+
+

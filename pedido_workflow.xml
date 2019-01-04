@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+	    <!-- Declaracion del workflow -->
+	    <record id ="wkf_pedido" model="workflow">
+		    <field name="name">pedido.basic</field>
+		    <field name="osv">pedido</field>
+		    <field name="on_create">True</field>
+	    </record>
+	    <!-- Declaracion de nodos o actividades-->
+	    <record id="pedido_start" model="workflow.activity">
+	    	<field name="wkf_id" ref="wkf_pedido"/>
+	    	<field name="flow_start">True</field>
+	    	<field name="name">Registrar</field>
+	    	<field name="kind">dummy</field>
+	    </record>
+	    <record id="pedido_listo" model="workflow.activity">
+	    	<field name="wkf_id" ref="wkf_pedido"/>
+	    	<field name="name">Suscribir</field>
+	    	<field name="kind">function</field>
+	    	<field name="action">write({'state':"listo"})</field>
+	    </record>
+	    <record id="pedido_fin" model="workflow.activity">
+	    	<field name="wkf_id" ref="wkf_pedido"/>
+	    	<field name="name">Fin</field>
+	    	<field name="kind">function</field>
+	    	<field name="action">write({'state':'finalizado'})</field>
+	    	<field name="flow_stop">True</field>
+	    </record>
+	    <!-- Declaracion de las transiciones o estados -->
+	    <record id="trans_start_listo" model="workflow.transition">
+	    	<field name="act_from" ref="pedido_start"/>
+	    	<field name="act_to" ref="pedido_listo"/>
+	    	<field name="signal">start</field>   	
+	    </record>
+	        <record id="trans_listo_fin" model="workflow.transition">
+	    	<field name="act_from" ref="pedido_listo"/>
+	    	<field name="act_to" ref="pedido_fin"/>
+	    	<field name="signal">finalizar</field>   	
+	    </record>    
+
+    </data>
+</openerp>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_manage_suscripcion_form">
+			<field name="name">vista_Form</field>
+			<field name="model">suscripcion</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Classes">
+					<field name="name" />
+					<field name="start" />
+					<field name='cuenta' />
+					<field name='tipo_suscripcion' />
+					<field name="usuario_id" />
+					<field name="empresa_id" />
+				</form>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_manage_suscripcion_tree">
+			<field name="name">vista_Tree</field>
+			<field name="model">suscripcion</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Suscripcion_tree">
+					<field name="name" />
+					<field name="start" />
+					<field name='cuenta' />
+					<field name='tipo_suscripcion' />
+					<field name="usuario_id" />
+					<field name="empresa_id" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="view_manage_calendar">
+			<field name="name">view_upoclean_suscripcion_calendar</field>
+			<field name="model">suscripcion</field>
+			<field name="type">calendar</field>
+			<field name="arch" type="xml">
+				<calendar color="usuario_id" string="suscripciones" date_start="start" date_stop="start" >
+					<field name="name" />
+				</calendar>
+			</field>
+		</record>
+		<record id="act_suscripcion" model="ir.actions.act_window">
+			<field name="name">Suscripcion</field>
+			<field name="res_model">suscripcion</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form,tree,calendar</field>
+		</record>
+		<menuitem id="upoclean" name="Upoclean" action="act_suscripcion" />
+		<menuitem name="Suscripciones" id="suscripciones_submenu"
+			parent="upoclean" sequence="120" />
+		<menuitem name="Ver suscripciones" id="ver_suscripciones_submenu"
+			parent="suscripciones_submenu" sequence="130" action="act_suscripcion" />
+	</data>
+</openerp> 
